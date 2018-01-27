@@ -1,0 +1,16 @@
+<can-import from="./places-autocomplete-callback/places-autocomplete-callback" />
+<can-import from="./places-autocomplete-suggestion-callback/places-autocomplete-suggestion-callback" />
+
+<can-slot name="places-autocomplete-input">
+  <input can-places-autocomplete-callback />
+</can-slot>
+
+{{#if(suggestions.length)}}
+  <div class="places-autocomplete__suggestions">
+    {{#each(suggestions, suggestion=value)}}
+      <can-slot name="places-autocomplete-suggestion">
+        <div>{{suggestion.description}}</div>  
+      </can-slot>
+    {{/each}}
+  </div>
+{{/if}}

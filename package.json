@@ -1,0 +1,93 @@
+{
+  "name": "can-places-autocomplete",
+  "version": "0.0.0",
+  "description": "Canjs/Donejs plugin for google maps places autocomplete",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cherifGsoul/can-places-autocomplete.git"
+  },
+  "author": {
+    "name": "Cherif BOUCHELAGHEM",
+    "email": "cherif.bouchelaghem@gmail.com",
+    "url": "http://cherifbouchelaghem.com"
+  },
+  "scripts": {
+    "preversion": "npm test && npm run build",
+    "version": "git commit -am \"Update version number\" && git checkout -b release && git add -f dist/",
+    "postpublish": "git push --tags && git checkout master && git branch -D release && git push",
+    "testee": "testee test.html --browsers firefox",
+    "test": "npm run jshint && npm run testee",
+    "jshint": "jshint ./*.js ./src/ --config",
+    "release:patch": "npm version patch && npm publish",
+    "release:minor": "npm version minor && npm publish",
+    "release:major": "npm version major && npm publish",
+    "build": "node build.js",
+    "develop": "done-serve --static --develop --port 8080"
+  },
+  "main": "dist/cjs/can-places-autocomplete",
+  "browser": {
+    "transform": [
+      "cssify"
+    ]
+  },
+  "browserify": {
+    "transform": [
+      "cssify"
+    ]
+  },
+  "keywords": [
+    "canjs",
+    "donejs",
+    "donejs-plugin",
+    "geolocation",
+    "google",
+    "maps",
+    "places",
+    "ui"
+  ],
+  "steal": {
+    "main": "can-places-autocomplete",
+    "configDependencies": [
+      "live-reload"
+    ],
+    "npmIgnore": [
+      "testee",
+      "generator-donejs",
+      "donejs-cli",
+      "steal-tools"
+    ],
+    "plugins": [
+      "steal-less",
+      "steal-stache"
+    ],
+    "directories": {
+      "lib": "src"
+    }
+  },
+  "dependencies": {
+    "can-component": "^3.3.5",
+    "can-control": "^3.2.4",
+    "can-define": "^1.5.3",
+    "can-dom-events": "^1.1.0",
+    "can-event-dom-enter": "^2.0.1",
+    "can-stache": "^3.11.1",
+    "can-view-autorender": "^3.1.1",
+    "can-view-callbacks": "^3.2.4",
+    "can-view-import": "^3.2.7",
+    "cssify": "^0.6.0",
+    "steal-less": "^1.2.0",
+    "steal-stache": "^3.1.2"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.1",
+    "steal": "^1.5.15",
+    "steal-qunit": "^1.0.1",
+    "steal-tools": "^1.9.1",
+    "testee": "^0.3.0",
+    "generator-donejs": "^1.0.7",
+    "donejs-cli": "^1.0.0",
+    "done-serve": "^1.5.0"
+  },
+  "license": "MIT"
+}

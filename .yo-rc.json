@@ -1,0 +1,9 @@
+{
+  "generator-donejs": {
+    "promptValues": {
+      "authorName": "Cherif BOUCHELAGHEM",
+      "authorEmail": "cherif.bouchelaghem@gmail.com",
+      "authorUrl": "http://cherifbouchelaghem.com"
+    }
+  }
+}

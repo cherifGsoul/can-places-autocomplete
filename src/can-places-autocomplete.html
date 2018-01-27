@@ -1,0 +1,25 @@
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo1j2DpMj3wsTwaNTgNsEwIPUPXIOPCpg&libraries=geometry,places"></script>
+<script type="text/stache" id="demo-html" can-autorender>
+  <can-import from="can-places-autocomplete/" />
+  
+  {{#if suggestions}}
+    {{#each(suggestions, suggestion=value)}}
+      {{suggestion.description}
+    {{/each}}
+  {{/if}}
+  <input value:bind="country" />
+  <input can-places-autocomplete >
+</script>
+<script src="../../../node_modules/steal/steal.js" main="can-view-autorender">
+  import "can-view-import";
+  import DefineMap from "can-define/map/map";
+  import DefineList from "can-define/list/list";
+  import domData from "can-util/dom/data/data";
+
+  var vm = new DefineMap({
+    country: "dz",
+    suggestions: new DefineList()
+  })
+  var element = document.getElementById("demo-html");
+  domData.set.call(element, "viewModel", vm);
+</script>
