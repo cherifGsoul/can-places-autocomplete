@@ -1,5 +1,4 @@
 <can-import from="./places-autocomplete-callback/places-autocomplete-callback" />
-<can-import from="./places-autocomplete-suggestion-callback/places-autocomplete-suggestion-callback" />
 
 <can-slot name="places-autocomplete-input">
   <input can-places-autocomplete-callback />
