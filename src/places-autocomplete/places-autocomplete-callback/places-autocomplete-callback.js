@@ -33,6 +33,7 @@ let Autocomplete = CanControl.extend({
     }
   },
   '{element} input': function (el, ev) {
+    this.options.selectedPlace(new DefineMap());
     const { value } = ev.target;
     if (value.length) {
      this.fetchPredictions(value)

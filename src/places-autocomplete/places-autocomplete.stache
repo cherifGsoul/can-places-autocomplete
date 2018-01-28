@@ -5,11 +5,13 @@
 </can-slot>
 
 {{#if(suggestions.length)}}
-  <div class="places-autocomplete__suggestions">
+  
     <can-slot name="places-autocomplete-suggestions">
-      {{#each(suggestions, suggestion=value)}}  
-        <div>{{suggestion.description}}</div>  
-      {{/each}}
+      <div class="places-autocomplete__suggestions">
+        {{#each(suggestions, suggestion=value)}}  
+          <div>{{suggestion.description}}</div>  
+        {{/each}}
+      </div>
     </can-slot>
   </div>
 {{/if}}

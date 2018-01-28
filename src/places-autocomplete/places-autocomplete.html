@@ -13,10 +13,11 @@
             </div>
         </can-template>
         <can-template name="places-autocomplete-suggestions">
-
+          <div class="places-autocomplete__suggestions">
             {{#each(suggestions, suggestion=value)}}  
               <div on:click="selectPlace(this)"><i class="glyphicon glyphicon-map-marker"></i>{{suggestion.description}}</div>  
             {{/each}}
+          </div>
         </can-template>
     </can-places-autocomplete>
   </div>
