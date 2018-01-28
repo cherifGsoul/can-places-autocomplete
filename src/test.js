@@ -9,3 +9,5 @@ import 'can-places-autocomplete/places-autocomplete-suggestions/places-autocompl
 import 'can-places-autocomplete/places-autocomplete/places-autocomplete-suggestion/places-autocomplete-suggestion-test';
 
 import 'can-places-autocomplete/places-autocomplete/places-autocomplete-suggestion-callback/places-autocomplete-suggestion-callback-test';
+
+import 'can-places-autocomplete/places-autocomplete/geo-utils/geo-utils-test';

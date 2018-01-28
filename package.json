@@ -80,14 +80,15 @@
     "steal-stache": "^3.1.2"
   },
   "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "done-serve": "^1.5.0",
+    "donejs-cli": "^1.0.0",
+    "generator-donejs": "^1.0.7",
     "jshint": "^2.9.1",
     "steal": "^1.5.15",
     "steal-qunit": "^1.0.1",
     "steal-tools": "^1.9.1",
-    "testee": "^0.3.0",
-    "generator-donejs": "^1.0.7",
-    "donejs-cli": "^1.0.0",
-    "done-serve": "^1.5.0"
+    "testee": "^0.3.0"
   },
   "license": "MIT"
 }

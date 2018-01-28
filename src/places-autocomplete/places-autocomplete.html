@@ -1,11 +1,25 @@
 <script type="text/stache" id="demo-html" can-autorender>
+  <can-import from="bootstrap/dist/css/bootstrap.css"></can-import>
   <can-import from="can-places-autocomplete/places-autocomplete/" />
-  {{place}}
-  <can-places-autocomplete placeId:to="place">
-      <can-template name="places-autocomplete-suggestion">
-        <div on:click="selectPlace(this)" class="{{#this.active}}is-active{{/this.active}}">{{suggestion.description}}</div>  
-      </can-template>
-  </can-places-autocomplete>
+
+  <div class="container">
+    <p>{{address}}</p>
+    <p>{{placeCode}}</p>
+
+    <can-places-autocomplete placeId:to="place" suggestion:to="address" placeId:to="placeCode">
+        <can-template name="places-autocomplete-input">
+            <div class="form-group">
+              <input type="text" class="form-control" can-places-autocomplete-callback value:from="suggestion">
+            </div>
+        </can-template>
+        <can-template name="places-autocomplete-suggestions">
+
+            {{#each(suggestions, suggestion=value)}}  
+              <div on:click="selectPlace(this)"><i class="glyphicon glyphicon-map-marker"></i>{{suggestion.description}}</div>  
+            {{/each}}
+        </can-template>
+    </can-places-autocomplete>
+  </div>
 </script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo1j2DpMj3wsTwaNTgNsEwIPUPXIOPCpg&libraries=geometry,places"></script>
 <script src="../../node_modules/steal/steal.js" main="can-view-autorender">

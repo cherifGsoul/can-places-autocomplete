@@ -6,10 +6,10 @@
 
 {{#if(suggestions.length)}}
   <div class="places-autocomplete__suggestions">
-    {{#each(suggestions, suggestion=value)}}
-      <can-slot name="places-autocomplete-suggestion">
+    <can-slot name="places-autocomplete-suggestions">
+      {{#each(suggestions, suggestion=value)}}  
         <div>{{suggestion.description}}</div>  
-      </can-slot>
-    {{/each}}
+      {{/each}}
+    </can-slot>
   </div>
 {{/if}}

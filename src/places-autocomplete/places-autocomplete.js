@@ -4,6 +4,24 @@ import DefineList from 'can-define/list/list';
 import './places-autocomplete.less';
 import view from './places-autocomplete.stache';
 
+/**
+ * @module {Module} can-places-autocomplete/places-autocomplete/places-autocomplete
+ * @parent can-places-autcomplete
+ * 
+ * @description Provides a custom element which wraps an google places autcomplete input
+ * 
+ * @body
+ * Render `<can-places-autocomplete>` in the template:
+ * 
+ * ```
+ * <can-places-autocomplete />
+ * ```
+ * 
+ * Like this the custom element will use the default template for the autocomplete input and autocomplete suggestion
+ * 
+ * It can be customized by using `<can-template>` 
+ * 
+ */
 export const ViewModel = DefineMap.extend({
   country: 'string',
   suggestions: {
