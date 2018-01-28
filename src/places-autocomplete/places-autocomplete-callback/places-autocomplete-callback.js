@@ -31,8 +31,6 @@ let Autocomplete = CanControl.extend({
     if (isFunction(this.options.activeSuggestion)) {
       this.options.activeSuggestion = this.options.activeSuggestion();
     }
-    //this.on();
-
   },
   '{element} input': function (el, ev) {
     const { value } = ev.target;
@@ -45,6 +43,7 @@ let Autocomplete = CanControl.extend({
   },
   "{element} enter": function(el, ev) {
     this.handleEnterKey();
+    this.clearSuggestions()
   },
   '{element} keyup': function(el, ev) {
     switch (ev.key) {
@@ -67,6 +66,10 @@ let Autocomplete = CanControl.extend({
     if (value.length) {
       this.fetchPredictions(value)
     }
+  },
+  '{selectedPlace} change': function(selectedPlace) {
+    const place = isFunction(selectedPlace) ? selectedPlace() : selectedPlace;
+    this.clearSuggestions();
   },
   autocompleteCallback(predictions) {
     let suggestions = this.options.suggestions;

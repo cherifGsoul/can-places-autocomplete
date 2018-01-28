@@ -1,7 +1,7 @@
 <can-import from="./places-autocomplete-callback/places-autocomplete-callback" />
 
 <can-slot name="places-autocomplete-input">
-  <input can-places-autocomplete-callback />
+  <input can-places-autocomplete-callback value:from="suggestion"/>
 </can-slot>
 
 {{#if(suggestions.length)}}
