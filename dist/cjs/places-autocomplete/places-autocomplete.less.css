@@ -1,0 +1,14 @@
+/*can-places-autocomplete@0.0.1-dev#places-autocomplete/places-autocomplete.less!steal-less@1.2.2#less*/
+can-places-autocomplete {
+  display: block;
+  position: relative;
+}
+can-places-autocomplete input {
+  width: '100%';
+  padding: '10px';
+}
+can-places-autocomplete .places-autocomplete__suggestions {
+  position: absolute;
+  top: 100%;
+  border: '1px solid #555555';
+}
