@@ -19,7 +19,7 @@ import view from './places-autocomplete.stache';
  * 
  * Like this the custom element will use the default template for the autocomplete input and autocomplete suggestion
  * 
- * It can be customized by using `<can-template>` 
+ * It can be customized by using `<can-template>`
  * 
  */
 export const ViewModel = DefineMap.extend({

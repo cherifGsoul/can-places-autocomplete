@@ -1,7 +1,4 @@
 import canViewCallbacks from "can-view-callbacks";
-import canEvent from "can-event";
-import domEvents from "can-dom-events";
-import canEnterEvent from "can-event-dom-enter";
 import CanControl from "can-control";
 import DefineMap from "can-define/map/map";
 import "can-stache-bindings";
@@ -32,7 +29,7 @@ let Autocomplete = CanControl.extend({
       this.options.activeSuggestion = this.options.activeSuggestion();
     }
   },
-  '{element} input': function () {
+  '{element} input': function (el, ev) {
     this.options.selectedPlace(new DefineMap());
     const { value } = ev.target;
     if (value.length) {
@@ -42,9 +39,9 @@ let Autocomplete = CanControl.extend({
       suggestions.replace([]);
     }
   },
-  "{element} enter": function(el, ev) {
+  "{element} enter": function() {
     this.handleEnterKey();
-    this.clearSuggestions()
+    this.clearSuggestions();
   },
   '{element} keyup': function(el, ev) {
     switch (ev.key) {
@@ -89,7 +86,7 @@ let Autocomplete = CanControl.extend({
         active: false,
         formattedSuggestion: formattedSuggestion(prediction.structured_formatting)
       }));
-      suggestions.replace(items)
+      suggestions.replace(items);
     }
   },
   fetchPredictions(value) {
@@ -104,7 +101,7 @@ let Autocomplete = CanControl.extend({
       componentRestrictions: {
         country: country
       },
-    }, this.autocompleteCallback.bind(this))
+    }, this.autocompleteCallback.bind(this));
   },
   handleEnterKey() {
     if (this.activeSuggestion() === undefined) {
@@ -155,9 +152,11 @@ let Autocomplete = CanControl.extend({
     let suggestions;
     suggestions = this.options.suggestions.map((suggestion, index) => {
       if (indx === index) {
-        return { ...suggestion, active: true }
+        suggestion.active = true;
+        return suggestion;
       } else {
-        return { ...suggestion, active: false }
+        suggestion.active = false;
+        return suggestion;
       }
     });
     this.options.suggestions.replace(suggestions);

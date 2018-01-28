@@ -20,7 +20,8 @@
 		"raises": true,
 		"start": true,
 		"stop": true,
-		"global": true
+		"global": true,
+		"google": true
 	},
 	"curly": true,
 	"eqeqeq": true,
