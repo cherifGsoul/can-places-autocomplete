@@ -8,11 +8,11 @@ import "can-stache-bindings";
 import isFunction from "can-util/js/is-function/is-function";
 
 let Autocomplete = CanControl.extend({
-  init(el, options) {
+  init() {
     if (!window.google) {
       throw new Error(
         'Google Maps JavaScript API library must be loaded.'
-      )
+      );
     }
   
     if (!window.google.maps.places) {
@@ -32,11 +32,11 @@ let Autocomplete = CanControl.extend({
       this.options.activeSuggestion = this.options.activeSuggestion();
     }
   },
-  '{element} input': function (el, ev) {
+  '{element} input': function () {
     this.options.selectedPlace(new DefineMap());
     const { value } = ev.target;
     if (value.length) {
-     this.fetchPredictions(value)
+     this.fetchPredictions(value);
     } else {
       let suggestions = this.options.suggestions;
       suggestions.replace([]);
@@ -50,7 +50,7 @@ let Autocomplete = CanControl.extend({
     switch (ev.key) {
       case 'Escape':
         ev.preventDefault();
-        this.handleEscapeKey()
+        this.handleEscapeKey();
         break;
       case 'ArrowUp':
         ev.preventDefault();
@@ -62,14 +62,13 @@ let Autocomplete = CanControl.extend({
         break;
     }
   },
-  '{country} change': function(country) {
+  '{country} change': function() {
     const value = this.element.value;
     if (value.length) {
-      this.fetchPredictions(value)
+      this.fetchPredictions(value);
     }
   },
-  '{selectedPlace} change': function(selectedPlace) {
-    const place = isFunction(selectedPlace) ? selectedPlace() : selectedPlace;
+  '{selectedPlace} change': function() {
     this.clearSuggestions();
   },
   autocompleteCallback(predictions) {

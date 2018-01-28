@@ -1,6 +1,6 @@
 {
   "name": "can-places-autocomplete",
-  "version": "0.0.0",
+  "version": "0.0.1-dev",
   "description": "Canjs/Donejs plugin for google maps places autocomplete",
   "homepage": "",
   "repository": {

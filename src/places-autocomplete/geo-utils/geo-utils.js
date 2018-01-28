@@ -18,13 +18,13 @@ export const getLatLng = result => {
       const latLng = {
         lat: result.geometry.location.lat(),
         lng: result.geometry.location.lng()
-      }
+      };
       resolve(latLng);
     } catch(e) {
       reject(e);
     }
   });
-}
+};
 
 
 
@@ -40,4 +40,4 @@ export const geocodeForPlaceId = (placeId) => {
       resolve(results);
     });
   });
-}
+};
