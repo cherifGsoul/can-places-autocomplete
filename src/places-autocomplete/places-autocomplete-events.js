@@ -52,10 +52,14 @@ export default {
 		const {
 			value
 		} = ev.target;
+		
 		if (value.length) {
 			this.fetchPredictions(value);
 		} else {
 			this.viewModel.clearSuggestions();
+			this.viewModel.place = new PlaceModel();
+			this.viewModel.description = undefined;
+			this.viewModel.placeId = undefined;
 		}
 
 	},

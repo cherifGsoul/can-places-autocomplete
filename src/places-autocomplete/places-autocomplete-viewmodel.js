@@ -8,20 +8,24 @@ export default DefineMap.extend({
 
 	place: {
 		Type: PlaceModel,
-		set() {
+		set(place) {
+			this.description = place.description;
+			this.placeId = place.placeId;
 			this.suggestions.replace([]);
+			return place;
 		}
 	},
 
 	placesComponentRestriction: "any",
 
 	description: {
-		type: "string"
+		type: 'string'
 	},
 
 	placeId:{
 		type: "string"
 	},
+
 
 	get activeSuggestion() {
 		let activeSuggestion = _.find(this.suggestions, (suggestion) => {
@@ -55,5 +59,9 @@ export default DefineMap.extend({
 
 	clearSuggestions() {
 		this.suggestions = new DefineList();
+	},
+
+	selectPlace(suggestion) {
+		this.place = suggestion;
 	}
 });

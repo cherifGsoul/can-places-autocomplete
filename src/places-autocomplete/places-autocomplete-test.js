@@ -1,5 +1,5 @@
 import QUnit from 'steal-qunit';
-import { ViewModel } from './places-autocomplete';
+import { ViewModel } from './places-autocomplete-viewmodel';
 
 // ViewModel unit tests
 QUnit.module('can-places-autocomplete/places-autocomplete');

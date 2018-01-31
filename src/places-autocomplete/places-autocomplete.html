@@ -4,20 +4,18 @@
 
   <div class="container">
 
-    <can-places-autocomplete description:bind="address" suggestions:bind="suggestions">
+    <can-places-autocomplete>
         <can-template name="places-autocomplete-input">
-            {{#if address}}
-              {{address}}
-            {{/if}}
+          {{this.description}}
             <div class="form-group">
-              <input type="text" value:bind="address" class="form-control">
+              <input type="text" value:from="this.description" class="form-control">
             </div>
         </can-template>
         <can-template name="places-autocomplete-suggestions">
-          {{#if suggestions.length}}
+          {{#if this.suggestions.length}}
             <div>
-                {{#each(suggestions)}}
-                    <div on:click="pickPlace(this)" 
+                {{#each(this.suggestions)}}
+                    <div on:click="selectPlace(this)" 
                         class="{{#active}}is-active{{/active}}" 
                     >
                         {{this.description}}
