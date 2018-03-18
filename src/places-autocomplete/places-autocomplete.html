@@ -3,22 +3,26 @@
   <can-import from="can-places-autocomplete/places-autocomplete/" />
 
   <div class="container">
-
+    <x-enter />
     <can-places-autocomplete>
+
         <can-template name="places-autocomplete-input">
-          {{this.description}}
+            {{#if(this.description)}}
+              {{this.description}}
+            {{/if}}
+            
             <div class="form-group">
-              <input type="text" value:from="this.description" class="form-control">
+              <input type="text" value:bind="this.description" class="form-control">
             </div>
         </can-template>
         <can-template name="places-autocomplete-suggestions">
           {{#if this.suggestions.length}}
             <div>
-                {{#each(this.suggestions)}}
-                    <div on:click="selectPlace(this)" 
+                {{#each(this.suggestions, suggestion=value)}}
+                    <div on:click="scope.root.selectPlace(suggestion)" 
                         class="{{#active}}is-active{{/active}}" 
                     >
-                        {{this.description}}
+                        {{suggestion.description}}
                     </div>
                 {{/each}}
             </div>
@@ -29,21 +33,4 @@
 </script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo1j2DpMj3wsTwaNTgNsEwIPUPXIOPCpg&libraries=geometry,places"></script>
 <script src="../../node_modules/steal/steal.js" main="can-view-autorender">
- import "can-view-import";
-  import DefineMap from "can-define/map/map";
-  import DefineList from "can-define/list/list";
-  import domData from "can-util/dom/data/data";
-
-  var vm = new DefineMap({
-    pickPlace(place) {
-      this.place = place;
-    },
-    handleEnter(el) {
-      if (this.suggestions.length) {
-        this.suggestions.replace([]);
-      }
-    }
-  });
-  var element = document.getElementById("demo-html");
-  domData.set.call(element, "viewModel", vm);
 </script>

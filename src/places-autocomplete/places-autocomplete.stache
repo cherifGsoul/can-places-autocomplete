@@ -1,3 +1,2 @@
-
-<can-slot name="places-autocomplete-input" this:from="this"/>
-<can-slot name="places-autocomplete-suggestions" this:from="this"/>
+<can-slot name="places-autocomplete-input" this:bind="this"/>
+<can-slot name="places-autocomplete-suggestions" this:bind="this"/>

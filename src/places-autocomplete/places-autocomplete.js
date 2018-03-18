@@ -4,7 +4,6 @@ import events from "./places-autocomplete-events";
 import './places-autocomplete.less';
 import view from './places-autocomplete.stache';
 
-
 export default Component.extend({
   tag: 'can-places-autocomplete',
   ViewModel,

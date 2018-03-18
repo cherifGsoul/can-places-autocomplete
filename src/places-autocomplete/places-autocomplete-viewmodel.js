@@ -4,8 +4,12 @@ import PlaceModel from "./place-model";
 import _ from "lodash/core";
 
 export default DefineMap.extend({
-	suggestions: DefineList,
-
+	suggestions: {
+		Type: DefineList,
+		default() {
+			return new DefineList([])
+		}
+	},
 	place: {
 		Type: PlaceModel,
 		set(place) {
@@ -15,11 +19,11 @@ export default DefineMap.extend({
 			return place;
 		}
 	},
-
 	placesComponentRestriction: "any",
 
 	description: {
-		type: 'string'
+		type: 'string',
+		default: ''
 	},
 
 	placeId:{
@@ -42,9 +46,9 @@ export default DefineMap.extend({
 		this.description = activeDescription;
 	},
 
-	activateSuggestionAt(indx) {
+	activateSuggestionAt(idx) {
 		this.suggestions = this.suggestions.map((suggestion, index) => {
-			if (indx === index) {
+			if (idx === index) {
 				suggestion.active = true;
 			} else {
 				suggestion.active = false;
