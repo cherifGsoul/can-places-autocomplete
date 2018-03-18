@@ -3,7 +3,6 @@
   <can-import from="can-places-autocomplete/places-autocomplete/" />
 
   <div class="container">
-    <x-enter />
     <can-places-autocomplete>
 
         <can-template name="places-autocomplete-input">
@@ -33,4 +32,5 @@
 </script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo1j2DpMj3wsTwaNTgNsEwIPUPXIOPCpg&libraries=geometry,places"></script>
 <script src="../../node_modules/steal/steal.js" main="can-view-autorender">
+  import "can-event-dom-enter";
 </script>

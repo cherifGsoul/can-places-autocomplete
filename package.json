@@ -68,6 +68,7 @@
   "dependencies": {
     "can-component": "^4.0.2",
     "can-define": "^2.0.1",
+    "can-event-dom-enter": "^2.1.1",
     "can-stache": "^4.1.0",
     "can-view-autorender": "^4.0.0",
     "cssify": "^0.6.0",

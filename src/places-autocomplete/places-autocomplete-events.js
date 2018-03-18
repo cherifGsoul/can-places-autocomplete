@@ -3,6 +3,7 @@ import ViewModel from "./places-autocomplete-viewmodel";
 import './places-autocomplete.less';
 import view from './places-autocomplete.stache';
 import PlaceModel from "./place-model";
+import "can-event-dom-enter";
 
 
 export default {
@@ -64,6 +65,7 @@ export default {
 
 	},
 	"{element} enter": function () {
+		alert('Enter');
 		if (this.viewModel.activeSuggestion !== undefined) {
 			this.viewModel.selectActiveSuggestion();
 			this.viewModel.clearSuggestions();
