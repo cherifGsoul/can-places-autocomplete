@@ -1,3 +1,4 @@
+import PlaceModel from "./place-model";
 import "can-event-dom-enter";
 
 
