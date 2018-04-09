@@ -66,30 +66,28 @@
     }
   },
   "dependencies": {
-    "can-component": "^3.3.5",
-    "can-control": "^3.2.4",
-    "can-define": "^1.5.3",
-    "can-dom-events": "^1.1.0",
-    "can-event-dom-enter": "^2.0.1",
-    "can-stache": "^3.11.1",
-    "can-view-autorender": "^3.1.1",
-    "can-view-callbacks": "^3.2.4",
-    "can-view-import": "^3.2.7",
+    "can-component": "^4.0.2",
+    "can-define": "^2.0.1",
+    "can-dom-events": "^1.1.4",
+    "can-event-dom-enter": "^2.1.2",
+    "can-stache": "^4.1.0",
+    "can-view-autorender": "^4.0.0",
     "cssify": "^0.6.0",
-    "lodash": "^4.17.4",
-    "steal-less": "^1.2.0",
-    "steal-stache": "^3.1.2"
+    "lodash": "^4.17.5",
+    "steal-less": "^1.2.2",
+    "steal-stache": "^4.0.1"
   },
   "devDependencies": {
     "bootstrap": "^3.3.7",
-    "done-serve": "^1.5.0",
-    "donejs-cli": "^1.0.0",
-    "generator-donejs": "^1.0.7",
+    "can-dom-data-state": "^1.0.1",
+    "done-serve": "^2.0.0",
+    "donejs-cli": "^2.0.0",
+    "generator-donejs": "^2.1.0",
     "jshint": "^2.9.1",
-    "steal": "^1.5.15",
+    "steal": "^1.6.5",
     "steal-qunit": "^1.0.1",
-    "steal-tools": "^1.9.1",
-    "testee": "^0.3.0"
+    "steal-tools": "^1.11.3",
+    "testee": "^0.7.0"
   },
   "license": "MIT"
 }

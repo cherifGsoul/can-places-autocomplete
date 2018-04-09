@@ -1,37 +1,48 @@
 import DefineMap from 'can-define/map/';
 import DefineList from 'can-define/list/';
 import PlaceModel from "./place-model";
-import _ from "lodash/core";
+import { find } from "lodash/core";
 
 export default DefineMap.extend({
-	suggestions: DefineList,
-
+	suggestions: {
+		Type: DefineList,
+		default() {
+			return new DefineList([])
+		}
+	},
 	place: {
-		Type: PlaceModel,
+		type: {
+		  placeId: "string",
+			description: "string",
+		  index: "number",
+		  active: "boolean",
+		  formattedSuggestion: "string"
+		},
 		set(place) {
-			this.description = place.description;
-			this.placeId = place.placeId;
-			this.suggestions.replace([]);
+			this.clearSuggestions();
 			return place;
 		}
 	},
 
 	placesComponentRestriction: "any",
 
-	description: {
-		type: 'string'
-	},
-
-	placeId:{
-		type: "string"
-	},
-
-
 	get activeSuggestion() {
-		let activeSuggestion = _.find(this.suggestions, (suggestion) => {
+		let activeSuggestion = find(this.suggestions, (suggestion) => {
 			return suggestion.active;
 		});
 		return activeSuggestion;
+	},
+
+	get description() {
+		let description = '';
+		if (this.place) {
+			description = this.place.description;
+		}
+
+		if (this.activeSuggestion) {
+			description = this.activeSuggestion.description;
+		}
+		return description;
 	},
 
 	selectActiveDescriptionAt(idx) {
@@ -39,12 +50,11 @@ export default DefineMap.extend({
 			return suggestion.index === idx;
 		}).description;
 		this.activateSuggestionAt(idx);
-		this.description = activeDescription;
 	},
 
-	activateSuggestionAt(indx) {
+	activateSuggestionAt(idx) {
 		this.suggestions = this.suggestions.map((suggestion, index) => {
-			if (indx === index) {
+			if (idx === index) {
 				suggestion.active = true;
 			} else {
 				suggestion.active = false;
