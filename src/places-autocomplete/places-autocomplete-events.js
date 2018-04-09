@@ -1,5 +1,8 @@
-import PlaceModel from "./place-model";
-import "can-event-dom-enter";
+import enterEvent from "can-event-dom-enter";
+import domEvents from "can-dom-events";
+import assign from "can-assign";
+
+domEvents.addEvent(enterEvent);
 
 
 export default {
@@ -35,9 +38,9 @@ export default {
 			});
 
 			this.viewModel.suggestions = predictions.map((prediction, idx) => {
-				return new PlaceModel({
-					description: prediction.description,
+				return assign({}, {
 					placeId: prediction.place_id,
+					description: prediction.description,
 					index: idx,
 					active: false,
 					formattedSuggestion: formattedSuggestion(prediction.structured_formatting)
@@ -54,16 +57,12 @@ export default {
 			this.fetchPredictions(value);
 		} else {
 			this.viewModel.clearSuggestions();
-			this.viewModel.place = new PlaceModel();
-			this.viewModel.description = undefined;
-			this.viewModel.placeId = undefined;
 		}
 
 	},
 	"{element} enter": function () {
 		if (this.viewModel.activeSuggestion !== undefined) {
 			this.viewModel.selectActiveSuggestion();
-			this.viewModel.clearSuggestions();
 		}
 	},
 	"{element} keyup": function (el, ev) {
