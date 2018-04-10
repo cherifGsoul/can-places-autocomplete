@@ -1,2 +1,14 @@
-<can-slot name="places-autocomplete-input" this:bind="this"/>
-<can-slot name="places-autocomplete-suggestions" this:bind="this"/>
+<can-slot name="places-autocomplete-input" this:bind="this"></can-slot>
+<can-slot name="places-autocomplete-suggestions" this:bind="this">
+  {{#if this.suggestions.length}}
+    <div>
+      {{#each(this.suggestions, suggestion=value)}}
+        <div  on:click="../scope.set('place', suggestion)"
+              class="{{#active}}is-active{{/active}}" 
+        >
+          {{this.description}}
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+</can-slot>
