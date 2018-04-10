@@ -5,21 +5,8 @@
     <can-places-autocomplete>
       <can-template name="places-autocomplete-input">
         <div class="form-group">
-          <input type="text" value:bind="this.description" class="form-control">
+          <input type="text" value:from="this.description" class="form-control">
         </div>
-      </can-template>
-      <can-template name="places-autocomplete-suggestions">
-        {{#if this.suggestions.length}}
-          <div>
-            {{#each(this.suggestions, suggestion=value)}}
-            <div on:click="../selectPlace(suggestion)"
-                  class="{{#active}}is-active{{/active}}" 
-            >
-              {{suggestion.description}}
-            </div>
-              {{/each}}
-          </div>
-        {{/if}}
       </can-template>
     </can-places-autocomplete>
   </div>
