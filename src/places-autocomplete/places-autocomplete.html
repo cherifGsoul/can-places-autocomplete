@@ -2,7 +2,7 @@
   <can-import from="bootstrap/dist/css/bootstrap.css" />
   <can-import from="can-places-autocomplete/places-autocomplete/" />
   <div class="container">
-    <can-places-autocomplete>
+    <can-places-autocomplete componentRestrictions:from="restrictions">
       <can-template name="places-autocomplete-input">
         <div class="form-group">
           <input type="text" value:from="this.description" class="form-control">
@@ -12,4 +12,14 @@
   </div>
 </script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo1j2DpMj3wsTwaNTgNsEwIPUPXIOPCpg&libraries=geometry,places"></script>
-<script src="../../node_modules/steal/steal.js" main="can-view-autorender"></script>
+<script src="../../node_modules/steal/steal.js" main="can-view-autorender">
+  import DefineMap from "can-define/map/map";
+  import viewModel from "can-view-model"
+
+  const el = document.querySelector('#demo-html');
+  const vm = viewModel(el);
+  vm.restrictions = {
+    country: 'DZ'
+  }
+
+</script>

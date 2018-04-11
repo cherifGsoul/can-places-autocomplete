@@ -5,9 +5,9 @@ import { find } from "lodash/core";
 
 export default DefineMap.extend({
 	/**
-	 *
+	 * 
 	 */
-	restriction: "any",
+	componentRestrictions: "any",
 
 	/**
 	 *
