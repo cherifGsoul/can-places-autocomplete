@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/cherifGsoul/can-places-autocomplete.svg?branch=master)](https://travis-ci.org/cherifGsoul/can-places-autocomplete)
 
-Canjs/Donejs plugin for google maps places autocomplete
+CanJS/DoneJS plugin for google maps places autcomplete custom user interfaces 
 
 ## Usage
 
