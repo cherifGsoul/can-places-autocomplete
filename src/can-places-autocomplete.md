@@ -2,4 +2,4 @@
 
 # can-places-autocomplete
 
-Canjs/Donejs plugin for google maps places autocomplete
+CanJS/DoneJS plugin for google maps places autocomplete
