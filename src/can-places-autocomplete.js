@@ -73,6 +73,9 @@ export const ViewModel = DefineMap.extend({
 		}
 	},
 
+	/**
+	 * @property
+	 */
 	description: {
 		type: 'string',
 		value: function (description) {
@@ -87,6 +90,24 @@ export const ViewModel = DefineMap.extend({
 			});
 
 			description.resolve(null);
+		}
+	},
+
+	/**
+	 * @property
+	 **/
+	debounceWait: {
+		type: "number",
+		default: 200
+	},
+
+	/**
+	 * @property
+	 */
+	debouncedFetchPredictions: {
+		type: "any",
+		default() {
+			return debounce(this.fetchPredictions, this.debounceWait);
 		}
 	},
 
@@ -150,7 +171,6 @@ export const ViewModel = DefineMap.extend({
 					active: false,
 					formattedSuggestion: formattedSuggestion(prediction.structured_formatting)
 				});
-
 			});
 		}
 	},
@@ -206,7 +226,7 @@ export default Component.extend({
 			const { value } = ev.target;
 
 			if (value.length) {
-				this.viewModel.fetchPredictions(value);
+				this.viewModel.debouncedFetchPredictions(value);
 			} else {
 				this.viewModel.clearSuggestions();
 			}
