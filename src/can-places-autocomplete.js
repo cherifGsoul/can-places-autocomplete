@@ -5,7 +5,8 @@ import view from "./can-places-autocomplete.stache";
 import enterEvent from "can-event-dom-enter";
 import domEvents from "can-dom-events";
 import assign from "can-assign";
-import { find } from "lodash";
+import find from "lodash.find";
+import debounce from "lodash.debounce";
 
 domEvents.addEvent(enterEvent);
 

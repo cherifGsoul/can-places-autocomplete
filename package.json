@@ -73,7 +73,8 @@
     "can-stache": "^4.1.0",
     "can-view-autorender": "^4.0.0",
     "cssify": "^0.6.0",
-    "lodash": "^4.17.5",
+    "lodash.debounce": "^4.0.8",
+    "lodash.find": "^4.6.0",
     "steal-less": "^1.2.2",
     "steal-stache": "^4.0.1"
   },
