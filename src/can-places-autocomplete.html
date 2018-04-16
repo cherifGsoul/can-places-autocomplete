@@ -4,7 +4,7 @@
   <can-import from="can-places-autocomplete/" />
 
   <div class="container">
-    <can-places-autocomplete componentRestrictions:from="restrictions">
+    <can-places-autocomplete autocompleteOptions:from="autocompleteOptions">
       <can-template name="places-autocomplete-input">
         <div class="form-group">
           <input type="text" value:from="this.description" class="form-control">
@@ -19,8 +19,13 @@
   import viewModel from "can-view-model"
 
   const el = document.querySelector('#demo-html');
-  const vm = viewModel(el);
-  vm.restrictions = {
-		country: 'DZ'
-	};
+	const vm = viewModel(el);
+
+	vm.debounceWait = 1000;
+	vm.autocompleteOptions = {
+		types: ['geocode'],
+		componentRestrictions: {
+			country: 'DZ'
+		}
+	}
 </script>

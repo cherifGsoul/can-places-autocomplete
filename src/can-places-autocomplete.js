@@ -15,7 +15,7 @@ export const ViewModel = DefineMap.extend({
 	 * @property {Object}
 	 */
 	autocompleteService: {
-		type: "any"
+		Type: google.maps.places.AutocompleteService
 	},
 
 	/**
@@ -26,10 +26,26 @@ export const ViewModel = DefineMap.extend({
 	},
 
 	/**
-	 * @property
+	 * @property {Object}
 	 */
-	componentRestrictions: {
-		type: "any"
+	autocompleteOptions: {
+		type: {
+			bounds: {
+				Type: google.maps.LatLngBounds,
+			},
+			componentRestrictions: "any",
+			location: {
+				Type: google.maps.LatLng
+			},
+			offset: "number",
+			radius: "number",
+			types: {
+				Type: Array,
+				default() {
+					return [];
+				}
+			},
+		}
 	},
 
 	/**
@@ -147,8 +163,8 @@ export const ViewModel = DefineMap.extend({
 	 */
 	fetchPredictions(value) {
 		this.autocompleteService.getPlacePredictions({
+			...this.autocompleteOptions.get(),
 			input: value,
-			componentRestrictions: this.componentRestrictions
 		}, this.autocompleteCallback.bind(this));
 	},
 
